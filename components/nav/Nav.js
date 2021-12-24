@@ -1,14 +1,23 @@
-import classes from './nav.modules.css';
+import styles from './nav.module.scss';
+import { Flex, Button } from '@chakra-ui/react';
+import Link from 'next/link';
 
-export default function Nav() {
+const Nav = () => {
   return (
-    <div>
-      <div className="left">
-        <h1>Stefan Parenta</h1>
+    <Flex justify='space-between' align='center' className={styles.container}>
+      <div className={styles.left}>
+        <a href="top" target='_blank'>Stefan Parenta</a>
       </div>
-      <div className="right">
-
+      <div className={styles.right}>
+        <Button w='60%'>
+          Toggle Theme
+        </Button>
+        <Link href="/works">
+          <a>Works</a>
+        </Link>
       </div>
-    </div>
+    </Flex>
   )
 }
+
+export default Nav;

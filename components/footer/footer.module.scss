@@ -1,0 +1,14 @@
+.link:hover {
+  color: #0080ff;
+
+  animation: jump .5s linear alternate infinite;
+
+  @keyframes jump {
+    0%   {transform: translate3d(0,0,0);}
+    40%  {transform: translate3d(0,-5%,0) ;}
+    100% {transform: translate3d(0,-10%,0) ;}
+  }
+}
+
+
+
