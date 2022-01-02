@@ -1,3 +1,19 @@
-.box {
-  border-radius: 20px
+.right, .left {
+  z-index: 10;
+  cursor: pointer;
 }
+
+.slide {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  opacity: 0;
+  transition-duration: 2s ease;
+}
+
+.slide.active {
+  opacity: 0.5;
+  transition-duration: 2s;
+  transform: scale(1.08);
+}
+

@@ -22,26 +22,49 @@ const Works = () => {
   const length = data.length;
 
   const nextSlide = () => {
-    setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1)
-    console.log(currentSlide)
-  }
+    setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1);
+    console.log(currentSlide);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide(currentSlide === 0 ? length -1 : currentSlide - 1 )
-    console.log(currentSlide)
-  }
+    setCurrentSlide(currentSlide === 0 ? length - 1 : currentSlide - 1);
+    console.log(currentSlide);
+  };
 
   return (
     <Flex justify="center" m="50px">
-      <Image src="assets/arrow2.png" w="50px" h="50px" alt="" onClick={prevSlide}/>
+      <Image
+        src="assets/arrow2.png"
+        w="50px"
+        h="50px"
+        alt=""
+        onClick={prevSlide}
+        className={styles.left}
+      />
       <Box borderRadius="20px" w="500px" h="500px" bg="black">
-        {data.map((d) => (
-          <Flex justify="space-between" bg="grey" m="20px" key={d.id}>
-            <Image src={d.img} alt={d.text} w="50px" h="50px" />
+        {data.map((d, index) => (
+          <Flex
+            className={
+              index === currentSlide ? styles["slide active"] : styles.slide
+            }
+            m="20px"
+            key={d.id}
+            h="80%"
+          >
+            {index === currentSlide && (
+              <Image className={styles.img} src={d.img} alt={d.text} w="100%" h="100%" />
+            )}
           </Flex>
         ))}
       </Box>
-      <Image src="assets/arrow2.png" alt="" w="50px" h="50px" onClick={nextSlide}/>
+      <Image
+        src="assets/arrow2.png"
+        alt=""
+        w="50px"
+        h="50px"
+        onClick={nextSlide}
+        className={styles.right}
+      />
     </Flex>
   );
 };
